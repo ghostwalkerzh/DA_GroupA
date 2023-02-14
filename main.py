@@ -23,5 +23,4 @@ request_header = requests.get(url, headers=headers)
 print(request_header.text)
 
 
-#scrapy webcrawling
 
