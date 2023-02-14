@@ -1,4 +1,5 @@
 import scrapy
+#Step 8, 9, 10
 class NewSpider(scrapy.Spider):
     name = "new spider"
     start_urls = ['http://172.18.58.80/hr2/']
@@ -13,3 +14,7 @@ class NewSpider(scrapy.Spider):
         next_page = response.css(page_selector).extract_first()
         if next_page:
             yield scrapy.Request(response.urljoin(next_page), callback=self.parse)
+
+#cd to spider1 first
+#Command to save file: scrapy runspider scrapytest.py -o filename.json -t json
+
