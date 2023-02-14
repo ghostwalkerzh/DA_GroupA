@@ -10,10 +10,18 @@ print("\t *", webpage.status_code)
 
 h = requests.head(url)
 print("Header:")
-print("**********")
+print("==========================================")
 for x in h.headers:
     print("\t ", x, ":", h.headers[x])
 
-print("**********")
+print("==========================================")
 
 headers = {'User-Agent' : 'Mobile'}
+
+#url2 = 'http://httpbin.org/headers'
+request_header = requests.get(url, headers=headers)
+print(request_header.text)
+
+
+#scrapy webcrawling
+

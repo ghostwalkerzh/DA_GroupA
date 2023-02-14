@@ -1,0 +1,112 @@
+Index: main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import requests\r\n\r\nurl = 'http://172.18.58.80/hr2/'\r\nwebpage = requests.get(url)\r\n\r\nprint(webpage.text)\r\n\r\nprint(\"status code:\")\r\nprint(\"\\t\",webpge.status_code)\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/main.py b/main.py
+--- a/main.py	(revision e4c2e6cd12be47c25abe9d0263de99591f9330fc)
++++ b/main.py	(date 1676339418465)
+@@ -1,9 +1,30 @@
+ import requests
+ 
+-url = 'http://172.18.58.80/hr2/'
++#set the target webpage
++url = 'http://www.wikipedia.org'
+ webpage = requests.get(url)
+ 
++#this will get the full webpage in text
+ print(webpage.text)
+ 
+-print("status code:")
+-print("\t",webpge.status_code)
++#get and print the status code
++print("Status code:")
++print("\t *", webpage.status_code)
++
++#get the headers
++h = requests.head(url)
++print("Header:")
++print("**********")
++#to print line by line
++for x in h.headers:
++    print("\t ", x, ":", h.headers[x])
++
++print("**********")
++
++#modify the headers user-agent
++headers = {'User-Agent' : 'Iphone 14'}
++
++#Test it on an external site
++url2 = 'http://httpbin.org/headers'
++request_header = requests.get(url2, headers=headers)
++print(request_header.text)
+\ No newline at end of file
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+new file mode 100644
+--- /dev/null	(date 1676339354448)
++++ b/.idea/workspace.xml	(date 1676339354448)
+@@ -0,0 +1,56 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="AutoImportSettings">
++    <option name="autoReloadType" value="SELECTIVE" />
++  </component>
++  <component name="ChangeListManager">
++    <list default="true" id="72417c72-fa48-4551-bbd8-b84a0095c8c4" name="Changes" comment="o">
++      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++    </list>
++    <option name="SHOW_DIALOG" value="false" />
++    <option name="HIGHLIGHT_CONFLICTS" value="true" />
++    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
++    <option name="LAST_RESOLUTION" value="IGNORE" />
++  </component>
++  <component name="Git.Settings">
++    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++  </component>
++  <component name="MarkdownSettingsMigration">
++    <option name="stateVersion" value="1" />
++  </component>
++  <component name="ProjectId" id="2Lhz5TxuiwFOeNqvifSyQoAAyyz" />
++  <component name="ProjectViewState">
++    <option name="hideEmptyMiddlePackages" value="true" />
++    <option name="showLibraryContents" value="true" />
++  </component>
++  <component name="PropertiesComponent"><![CDATA[{
++  "keyToString": {
++    "RunOnceActivity.OpenProjectViewOnStart": "true",
++    "RunOnceActivity.ShowReadmeOnStart": "true",
++    "last_opened_file_path": "C:/Users/David/PycharmProjects/Lab10",
++    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
++  }
++}]]></component>
++  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
++  <component name="TaskManager">
++    <task active="true" id="Default" summary="Default task">
++      <changelist id="72417c72-fa48-4551-bbd8-b84a0095c8c4" name="Changes" comment="" />
++      <created>1676337919007</created>
++      <option name="number" value="Default" />
++      <option name="presentableId" value="Default" />
++      <updated>1676337919007</updated>
++    </task>
++    <servers />
++  </component>
++  <component name="Vcs.Log.Tabs.Properties">
++    <option name="TAB_STATES">
++      <map>
++        <entry key="MAIN">
++          <value>
++            <State />
++          </value>
++        </entry>
++      </map>
++    </option>
++  </component>
++</project>
+\ No newline at end of file
