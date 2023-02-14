@@ -1,6 +1,6 @@
 import requests
 
-url = 'http://www.wikipedia.org'
+url = 'http://172.18.58.80/hr2/'
 webpage = requests.get(url)
 
 print(webpage.text)
@@ -16,8 +16,4 @@ for x in h.headers:
 
 print("**********")
 
-headers = {'User-Agent' : 'Iphone 14'}
-
-url2 = 'http://httpbin.org/headers'
-request_header = requests.get(url2, headers=headers)
-print(request_header.text)
+headers = {'User-Agent' : 'Mobile'}
