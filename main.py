@@ -4,6 +4,7 @@ import unittest
 #requests, urllib3, w3lib, scrapy
 
 url = 'http://172.18.58.80/hr2/'
+url2 = 'http://httpbin.org/headers'
 #Step 4
 '''
 webpage = requests.get(url)
@@ -29,7 +30,7 @@ headers = {'User-Agent' : 'Mobile'}
 
 '''
 #TBD remove comment and uncomment chunk if incorrect and required to dsiplay UA
-#url2 = 'http://httpbin.org/headers'
+#
 request_header = requests.get(url, headers=headers)
 print('==========================================================================')
 print(request_header)
@@ -52,5 +53,9 @@ class testingprogram(unittest.TestCase):
         for x in h.headers:
             print("\t ", x, ":", h.headers[x])
         print("==========================================")
+    def test_useragentmod(self):
+        request_header = requests.get(url2, headers=headers)
+        print('==========================================================================')
+        print(request_header.text)
 if __name__ == '__main__':
     unittest.main()
