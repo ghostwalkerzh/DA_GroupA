@@ -28,14 +28,6 @@ print("==========================================")
 #Step 7
 headers = {'User-Agent' : 'Mobile'}
 
-'''
-#TBD remove comment and uncomment chunk if incorrect and required to dsiplay UA
-#
-request_header = requests.get(url, headers=headers)
-print('==========================================================================')
-print(request_header)
-'''
-
 #Testing
 class testingprogram(unittest.TestCase):
     def test_url(self):
